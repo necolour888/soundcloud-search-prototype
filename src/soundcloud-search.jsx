@@ -228,11 +228,6 @@ function PhoneScreen() {
               <span style={{ fontSize: 13, lineHeight: 1 }}>{SORT_META[sortBy].icon}</span>
             )}
             {sortBy}
-            {isFiltered && !showSheet && (
-              <span style={{ fontSize: 10, fontWeight: 700, color: accent, background: accent + "22", border: `1px solid ${accent}55`, borderRadius: 12, padding: "2px 6px", marginLeft: 6, letterSpacing: 0.4 }}>
-                FILTERED
-              </span>
-            )}
             <svg width="11" height="11" viewBox="0 0 12 12"><path d="M3 4.5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" /></svg>
           </button>
 
