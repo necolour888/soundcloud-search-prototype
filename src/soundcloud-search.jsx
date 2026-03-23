@@ -244,14 +244,7 @@ function PhoneScreen() {
 
         </div>
 
-        {/* Active filter banner */}
-        {isFiltered && (
-          <ActiveFilterBanner
-            sortBy={sortBy}
-            accent={accent}
-            onClear={() => setSortBy(DEFAULT_SORT)}
-          />
-        )}
+        {/* Active filter banner removed (redundant with inline status) */}
 
         {/* Results — left border track shows accent when filtered */}
         <div style={{
