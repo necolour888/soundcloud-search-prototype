@@ -228,6 +228,11 @@ function PhoneScreen() {
               <span style={{ fontSize: 13, lineHeight: 1 }}>{SORT_META[sortBy].icon}</span>
             )}
             {sortBy}
+            {isFiltered && !showSheet && (
+              <span style={{ fontSize: 10, fontWeight: 700, color: accent, background: accent + "22", border: `1px solid ${accent}55`, borderRadius: 12, padding: "2px 6px", marginLeft: 6, letterSpacing: 0.4 }}>
+                FILTERED
+              </span>
+            )}
             <svg width="11" height="11" viewBox="0 0 12 12"><path d="M3 4.5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" /></svg>
           </button>
 
@@ -237,25 +242,6 @@ function PhoneScreen() {
             <svg width="11" height="11" viewBox="0 0 12 12"><path d="M3 4.5l3 3 3-3" stroke="rgba(255,255,255,0.45)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" /></svg>
           </button>
 
-          {/* Active filter badge — far right */}
-          {isFiltered && (
-            <div style={{
-              marginLeft: "auto",
-              background: accent + "22",
-              border: `1px solid ${accent}55`,
-              borderRadius: 20,
-              padding: "2px 9px",
-              fontSize: 11,
-              color: accent,
-              fontWeight: 600,
-              display: "flex", alignItems: "center", gap: 4,
-              animation: "fadeSlideIn 0.2s ease",
-              letterSpacing: 0.3,
-            }}>
-              <div style={{ width: 5, height: 5, borderRadius: "50%", background: accent, boxShadow: `0 0 4px ${accent}` }} />
-              FILTERED
-            </div>
-          )}
         </div>
 
         {/* Active filter banner */}
@@ -331,16 +317,7 @@ function PhoneScreen() {
                     <span style={{ fontSize: 15, color: meta.color, lineHeight: 1, flexShrink: 0 }}>{meta.icon}</span>
                     {/* Label */}
                     <span style={{ fontSize: 14, color: selected ? "#fff" : "rgba(255,255,255,0.55)", fontWeight: selected ? 500 : 400 }}>{opt}</span>
-                    {/* Non-default badge */}
-                    {opt !== DEFAULT_SORT && (
-                      <span style={{
-                        marginLeft: "auto", fontSize: 10, fontWeight: 600,
-                        color: meta.color, background: meta.color + "22",
-                        border: `1px solid ${meta.color}44`,
-                        borderRadius: 10, padding: "1px 7px",
-                        letterSpacing: 0.3,
-                      }}>FILTER</span>
-                    )}
+                    {/* remove explicit 'FILTER' badge on menu options */}
                   </button>
                 );
               })}
